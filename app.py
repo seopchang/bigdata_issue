@@ -67,7 +67,10 @@ if search_button:
             try:
                 # API 키 설정
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel('gemini-pro')
+
+             # 사용 가능한 AI 모델 자동 탐색 및 연결
+                valid_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+                model = genai.GenerativeModel(valid_models[0])
 
                 # 데이터 수집
                 news_text = get_news(search_query)
