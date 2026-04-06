@@ -67,7 +67,7 @@ if search_button:
             try:
                 # API 키 설정
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-pro')
 
                 # 데이터 수집
                 news_text = get_news(search_query)
